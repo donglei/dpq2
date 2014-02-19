@@ -34,8 +34,8 @@ int PQisthreadsafe();
 Returns 1 if the libpq is thread-safe and 0 if it is not.
 */
 
-/// BaseConnection
-class BaseConnection
+/// Connection
+class Connection
 {
     string connString; /// Database connection parameters
     
@@ -133,7 +133,7 @@ void _unittest( string connParam )
 {    
     assert( PQlibVersion() >= 90100 );
     
-    auto c = new BaseConnection;
+    auto c = new Connection;
 	c.connString = connParam;
     c.connect();
     c.disconnect();
